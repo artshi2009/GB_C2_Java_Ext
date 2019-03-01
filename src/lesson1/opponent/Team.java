@@ -15,7 +15,7 @@ public class Team {
     }
 
     public void showResults() {
-        System.out.printf("%s info:\n", teamName);
+        System.out.printf("%s информация:\n", teamName);
         for (IAction IAction : actions) {
             IAction.result();
         }

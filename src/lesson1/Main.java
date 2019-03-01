@@ -6,7 +6,6 @@ import lesson1.course.*;
 
 public class Main {
     public static void main(String[] args) {
-
         Course course1 = new Course(new Road(300), new Wall(2), new Water(5));
 
         Team team1 = new Team("За Спарту!", new Duck("HanSolo"), new Cat("Killer"),
