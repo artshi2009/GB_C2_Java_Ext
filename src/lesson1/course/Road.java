@@ -10,7 +10,7 @@ public class Road extends Obstacle {
     }
 
     @Override
-    public void doIt(IAction IAction) {
-        IAction.run(dist);
+    public void doIt(IAction action) {
+        action.run(dist);
     }
 }
