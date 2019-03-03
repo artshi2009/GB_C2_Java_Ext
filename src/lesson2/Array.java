@@ -8,8 +8,8 @@ class Array {
 
     void searchOfTwoDimensionArray(String[][] array){
         int count = 0;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++){
                 try {
                     arr[i][j] = array[i][j];
                     try {
