@@ -1,31 +1,29 @@
 package lesson2;
 
-import java.util.ArrayList;
+import lesson2.customexc.MyArrayDataException;
+import lesson2.customexc.MySizeArrayException;
 
 class Array {
-    private ArrayList<String> arrError = new ArrayList<>();
+
     private String[][] arr = new String[4][4];
 
-    void searchOfTwoDimensionArray(String[][] array){
+    void searchOfTwoDimensionArray(String[][] array) throws MySizeArrayException, MyArrayDataException {
         int count = 0;
+        if (4 != array.length) throw new MySizeArrayException();
         for (int i = 0; i < arr.length; i++) {
+            if (4 != array[i].length) throw new MySizeArrayException();
             for (int j = 0; j < arr[i].length; j++){
-                try {
                     arr[i][j] = array[i][j];
                     try {
                         count += Integer.parseInt(arr[i][j]);
                     } catch (NumberFormatException ex) {
-                        arrError.add("В ячейке [" + i + "," + j + "] лежат данные, которые не могут быть преобразованы!;");
+                        throw new MyArrayDataException(i, j);
                     }
-                }catch (IndexOutOfBoundsException|NullPointerException ex){
-                    ex.printStackTrace();
-                }
             }
             System.out.println();
         }
         printOfArray();
         System.out.println("\n Сумма элементов массива: " + count + "\n");
-        printErrorOfArray();
     }
 
     private void printOfArray(){
@@ -37,12 +35,6 @@ class Array {
                 System.out.print(arr[i][j] + " ");
             }
             System.out.println();
-        }
-    }
-
-    private void printErrorOfArray(){
-        for (String errorString : arrError) {
-            System.out.println(errorString);
         }
     }
 }
