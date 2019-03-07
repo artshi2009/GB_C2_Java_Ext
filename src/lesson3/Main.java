@@ -3,6 +3,7 @@ package lesson3;
 import lesson3.dictionary.Phonedir;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,13 +37,12 @@ public class Main {
     }
 
     private static void setValueForKey(String[] words, Map<String, Integer> hashMap) {
-        for (int i = 0; i < words.length; i++) {
+        IntStream.range(0, words.length).forEach(i -> {
             if (hashMap.containsKey(words[i])) {
                 hashMap.put(words[i], hashMap.get(words[i]) + 1);
-            }
-            else {
+            } else {
                 hashMap.put(words[i], 1);
             }
-        }
+        });
     }
 }
